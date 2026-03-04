@@ -3,6 +3,8 @@
 //on stop, freeze timer
 
 //worry about the input field after, just want to get this working
+
+//initial commit
 document.addEventListener('DOMContentLoaded', () => { 
     let timerRunning = false;
     let currentStart = 0
