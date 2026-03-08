@@ -56,6 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('#timer_text').innerHTML = `00:00:00`
         timerRunning = false
         navigator.clipboard.writeText(`${document.querySelector('#task_output').textContent} - ${minutes}mins`);
+        clipboardConfirm = document.querySelector('#clipboard_confirm')
+        clipboardConfirm.innerHTML = 'Task Copied to Clipboard'
     })
     submitButton = document.querySelector('#task_submit')
     submitButton.addEventListener('click', () => {
