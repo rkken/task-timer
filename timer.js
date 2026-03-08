@@ -64,8 +64,10 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('submit button pressed')
         task = document.querySelector('#task')
         document.querySelector('#task_output').innerHTML = task.value
-        document.querySelector('#buttons_div').style.visibility = 'visible';
-        submitButton.style.visibility = 'hidden';
-        task.style.visibility = 'hidden';
+        if (task.value) {
+            document.querySelector('#buttons_div').style.visibility = 'visible';
+            submitButton.style.visibility = 'hidden';
+            task.style.visibility = 'hidden';    
+        }
     } )
 });
