@@ -47,23 +47,23 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     stopButton = document.querySelector('#stop')
     stopButton.addEventListener('click', () => {
-        if (timerRunning) {
-            console.log('timer stopped')
-            clearInterval(interval)
-            let timerRanFor = Math.floor(totalElapsedSeconds / 1000)
-            totalElapsedSeconds = 0
-            pauseOffset = 0
-            console.log(`timer ran for: ${timerRanFor}s`)
-            document.querySelector('#timer_text').innerHTML = `00:00:00`
-            timerRunning = false
-            navigator.clipboard.writeText(`${document.querySelector('#task_output').textContent} - ${minutes}mins`);
-        }
+        console.log('timer stopped')
+        clearInterval(interval)
+        let timerRanFor = Math.floor(totalElapsedSeconds / 1000)
+        totalElapsedSeconds = 0
+        pauseOffset = 0
+        console.log(`timer ran for: ${timerRanFor}s`)
+        document.querySelector('#timer_text').innerHTML = `00:00:00`
+        timerRunning = false
+        navigator.clipboard.writeText(`${document.querySelector('#task_output').textContent} - ${minutes}mins`);
     })
     submitButton = document.querySelector('#task_submit')
     submitButton.addEventListener('click', () => {
         console.log('submit button pressed')
-        task = document.querySelector('#task').value
-        document.querySelector('#task_output').innerHTML = task
-
+        task = document.querySelector('#task')
+        document.querySelector('#task_output').innerHTML = task.value
+        document.querySelector('#buttons_div').style.visibility = 'visible';
+        submitButton.style.visibility = 'hidden';
+        task.style.visibility = 'hidden';
     } )
 });
