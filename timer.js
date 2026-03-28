@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`timer ran for: ${timerRanFor}s`)
         document.querySelector('#timer_text').innerHTML = `00:00:00`
         timerRunning = false
-        navigator.clipboard.writeText(`${document.querySelector('#task_output').textContent} - ${minutes}mins`);
+        navigator.clipboard.writeText(`${document.querySelector('#task_output').textContent} - ${Math.floor(totalElapsedSeconds / 60000) % 60}mins`); //in minutes
         clipboardConfirm = document.querySelector('#clipboard_confirm')
         clipboardConfirm.innerHTML = 'Task Copied to Clipboard'
     })
