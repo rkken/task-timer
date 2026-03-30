@@ -25,9 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
         } 
 
         function updateTime() {
-            //updates the timer every 1s and formats correctly
+            //updates the timer every second and formats correctly
             //currently need a way for it to go from current if paused
             totalElapsedSeconds = (Date.now() - currentStart) + pauseOffset //in seconds
+            //testing
+            totalElapsedSeconds *= 1000
+            //testing
             seconds = Math.floor(totalElapsedSeconds / 1000) % 60
             minutes = Math.floor(totalElapsedSeconds / 60000) % 60
             hours =  Math.floor(totalElapsedSeconds / 3600000)
@@ -50,12 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('timer stopped')
         clearInterval(interval)
         let timerRanFor = Math.floor(totalElapsedSeconds / 1000)
+        let rawSeconds = totalElapsedSeconds
         totalElapsedSeconds = 0
         pauseOffset = 0
         console.log(`timer ran for: ${timerRanFor}s`)
         document.querySelector('#timer_text').innerHTML = `00:00:00`
         timerRunning = false
-        navigator.clipboard.writeText(`${document.querySelector('#task_output').textContent} - ${Math.floor(totalElapsedSeconds / 60000) % 60}mins`); //in minutes
+        navigator.clipboard.writeText(`${document.querySelector('#task_output').textContent} - ${Math.floor(rawSeconds / 60000)}mins`); //in minutes
         clipboardConfirm = document.querySelector('#clipboard_confirm')
         clipboardConfirm.innerHTML = 'Task Copied to Clipboard'
     })
