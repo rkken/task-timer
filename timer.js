@@ -28,9 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
             //updates the timer every second and formats correctly
             //currently need a way for it to go from current if paused
             totalElapsedSeconds = (Date.now() - currentStart) + pauseOffset //in seconds
-            //testing
-            totalElapsedSeconds *= 1000
-            //testing
             seconds = Math.floor(totalElapsedSeconds / 1000) % 60
             minutes = Math.floor(totalElapsedSeconds / 60000) % 60
             hours =  Math.floor(totalElapsedSeconds / 3600000)
